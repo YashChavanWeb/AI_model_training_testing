@@ -41,4 +41,4 @@
 - the line is what we have trained and we can use it to predict future data
 - Y = a1x1 + a2x2 + B (use two factors for training the model)
 
-
+pip install -r requirements.txt
