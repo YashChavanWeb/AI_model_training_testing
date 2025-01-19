@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medal Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Predict Number of Medals</h1>
+
+      <!-- Form to input data -->
+      <form action="/predict" method="post">
+        <label for="team">Team:</label>
+        <input type="text" id="team" name="team" required />
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required />
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required />
+
+        <label for="athletes">Number of Athletes:</label>
+        <input type="number" id="athletes" name="athletes" required />
+
+        <label for="age">Average Age:</label>
+        <input type="number" id="age" name="age" required />
+
+        <label for="prev_medals">Previous Medals:</label>
+        <input type="number" id="prev_medals" name="prev_medals" required />
+
+        <button type="submit">Predict</button>
+      </form>
+
+      {% if prediction is not none %}
+      <h2>Predicted Medals: {{ prediction }}</h2>
+      <h3>Actual Medals for {{ team }} in {{ year }}: {{ actual_medals }}</h3>
+      <h4>Prediction Error: {{ error }} medals</h4>
+      {% endif %}
+    </div>
+  </body>
+</html>
